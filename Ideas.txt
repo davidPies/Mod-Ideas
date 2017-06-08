@@ -1,2 +1,4 @@
 * kill effects - blood spurt
 * Entity corpses - retrieves: player skins, ragdoll animations
+* jjba mod - jojo´s bizzare adventure
+* 
