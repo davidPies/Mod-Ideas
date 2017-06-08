@@ -1,2 +1,2 @@
 * kill effects - blood spurt
-* Entity corpses - retrieves: player skins, 
+* Entity corpses - retrieves: player skins, ragdoll animations
