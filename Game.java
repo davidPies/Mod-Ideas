@@ -1,4 +1,4 @@
-package com.edu4java.samplegame;
+package pack1;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -24,7 +24,7 @@ public class Game extends JPanel {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        JFrame frame = new JFrame("Sample Frame");
+        JFrame frame = new JFrame("Ball Quest");
         Game game = new Game();
         frame.add(game);
         frame.setSize(300, 400);
