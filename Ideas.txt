@@ -1,0 +1,2 @@
+* kill effects - blood spurt
+* Entity corpses - retrieves: player skins, 
