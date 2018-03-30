@@ -10,7 +10,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
-import net.minecraftforge.fml.commons.SidedProxy;
+import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
@@ -24,22 +24,24 @@ public class satcraft
     public static final String NAME = "SAT craft";
     
     	public static Item pan;
-    	public static Item pat;
+    	public static Item registrationPapers;
 
     @SidedProxy(clientSide="satcraft.client", serverSide="satcraft.server")
     public static sharedproxy proxy;
     
     @EventHandler
     public void pre(FMLPreInitializationEvent e){
-    	//trumphair = new hair("trumphair", hairt, 0, EntityEquipmentSlot.HEAD);
-    	//GameRegistry.registerItem(trumphair, "trumphair");
+    	registrationPapers = new ItemFood(0F, 0F, 0F);
+        registrationPapers.setUnlocalizedName("registrationPapers");
+        registrationPapers.setRegistryName("registrationPapers");
+    	ForgeRegistries.ITEMS.register(registrationPapers);
     	EntityRegistry.registerModEntity(a.class, "spongebob", 0, MODID, 64, 5, true);
         
     }
     @EventHandler
     public void init(FMLInitializationEvent e)
     {
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(patty, 0, new ModelResourceLocation(MODID + ":" + patty.getUnlocalizedName().substring(5), "inventory"));
+        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(registrationPapers, 0, new ModelResourceLocation(MODID + ":" + registrationPapers.getUnlocalizedName().substring(5), "inventory"));
    
     }
 }
