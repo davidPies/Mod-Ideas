@@ -1,6 +1,7 @@
 package satcraft;
 
-import Mod-Ideas.satcraft.satcraft;
+import this;
+import satcraft.satcraft;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
