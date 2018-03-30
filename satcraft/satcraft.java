@@ -25,7 +25,12 @@ public class satcraft
     
     	public static Item pan;
     	public static Item registrationPapers;
-
+        public static CreativeTabs tabSAT = new CreativeTabs("satItems"){
+            @Override
+            public ItemStack getTabIconItem(){
+                return new ItemStack(satcraft.registrationPapers);
+            }
+        }
     @SidedProxy(clientSide="satcraft.client", serverSide="satcraft.server")
     public static sharedproxy proxy;
     
