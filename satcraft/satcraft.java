@@ -1,5 +1,18 @@
 package satcraft;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.item.Item;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.Mod.Instance;
+import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.registry.EntityRegistry;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+
 @Mod(modid = satcraft.MODID, version = satcraft.VERSION, name = satcraft.NAME)
 public class trumpmod
 {
@@ -15,15 +28,15 @@ public class trumpmod
     
     @EventHandler
     public void pre(FMLPreInitializationEvent e){
-    	proxy.registerRenderers();
     	//trumphair = new hair("trumphair", hairt, 0, EntityEquipmentSlot.HEAD);
     	//GameRegistry.registerItem(trumphair, "trumphair");
-    	EntityRegistry.registerModEntity(spongebob.class, "spongebob", 0, MODID, 64, 5, true);
-    	EntityRegistry.registerEgg(spongebob.class, 0, 1000);
+    	EntityRegistry.registerModEntity(a.class, "spongebob", 0, MODID, 64, 5, true);
+        
     }
     @EventHandler
     public void init(FMLInitializationEvent e)
     {
-    
+        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(patty, 0, new ModelResourceLocation(MODID + ":" + patty.getUnlocalizedName().substring(5), "inventory"));
+   
     }
 }
