@@ -13,7 +13,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-@Mod(modid = satcraft.MODID, version = satcraft.VERSION, name = satcraft.NAME)
+@Mod(modid = satcraft.satcraft.MODID, version = satcraft.VERSION, name = satcraft.NAME)
 public class trumpmod
 {
     public static final String MODID = "satcraft";
