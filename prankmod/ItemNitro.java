@@ -8,29 +8,30 @@ import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class ItemNitro extends Item implements ISBRegistry{
+public class ItemNitro extends Item implements ISBRegistry{ // I made ISBRegistry to register blocks and items (items/blocks are extended from the game)
 	public ItemNitro() {
+		//constructor
 	}
 	@Override
-	public Item getItem() {
-		return this;
+	public Item getItem() { // implements from ISBRegistry
+		return this; //returns this class
 	}
-	public void onUpdate(ItemStack stack, World worldIn, Entity player, int itemSlot, boolean isSelected)
-    {
-		this.explode(worldIn, player);
-    }
+	public void onUpdate(ItemStack stack, World worldIn, Entity player, int itemSlot, boolean isSelected) //extended from the game
+  	{
+		this.explode(worldIn, player); // my function
+   	}
 	@Override
-	public Block getSBBlock() {
-		return null;
+	public Block getSBBlock() { // implements from ISBRegistry
+		return null; // isn't a block -- so it returns nothing and is checked in the main class whether it is null
 	}
 	@Override
-	public String getName() {
-		return "nitro";
+	public String getName() { // implements from ISBRegistry
+		return "name1"; // changed name to remove context (even though the name is a bad practice)
 	}
 	public String getItemStackDisplayName(ItemStack stack)
-    {
-        return "Nitrofluid";
-    }
+    	{
+        	return "Name 1"; // display name
+    	}
 	public void explode(World world, Entity entityIn) {
 		BlockPos ppos = entityIn.getPosition();
 		//ppos.getAllInBox(ppos.add(-3, -3, -3), ppos.add(3, 3, 3)).iterator().next();
@@ -43,7 +44,7 @@ public class ItemNitro extends Item implements ISBRegistry{
 			this.doExplode(world, (TileEntityFurnace) world.getTileEntity(ppos.west(i)));
 		}
 	}
-	public void doExplode(World world, TileEntityFurnace tile) {
+	public void doExplode(World world, TileEntityFurnace tile) { // my function
 		if(tile != null && tile instanceof TileEntityFurnace) {
 			if(tile.getStackInSlot(0).getItem() == this || tile.getStackInSlot(1).getItem() == this) {
 				if(!world.isRemote) {
