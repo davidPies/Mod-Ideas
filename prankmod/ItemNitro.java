@@ -28,14 +28,13 @@ public class ItemNitro extends Item implements ISBRegistry{ // I made ISBRegistr
 	public String getName() { // implements from ISBRegistry
 		return "name1"; // changed name to remove context (even though the name is a bad practice)
 	}
-	public String getItemStackDisplayName(ItemStack stack)
+	public String getItemStackDisplayName(ItemStack stack) //extended from the game
     	{
         	return "Name 1"; // display name
     	}
-	public void explode(World world, Entity entityIn) {
-		BlockPos ppos = entityIn.getPosition();
-		//ppos.getAllInBox(ppos.add(-3, -3, -3), ppos.add(3, 3, 3)).iterator().next();
-		for(int i = 1; i < 4; i++) {
+	public void explode(World world, Entity entityIn) { // my function
+		BlockPos ppos = entityIn.getPosition(); // gets the player position
+		for(int i = 1; i < 4; i++) { // explodes when the item in the furnace is within a 3 block radius of the player
 			this.doExplode(world, (TileEntityFurnace) world.getTileEntity(ppos.up(i)));
 			this.doExplode(world, (TileEntityFurnace) world.getTileEntity(ppos.down(i)));
 			this.doExplode(world, (TileEntityFurnace) world.getTileEntity(ppos.north(i)));
@@ -45,9 +44,10 @@ public class ItemNitro extends Item implements ISBRegistry{ // I made ISBRegistr
 		}
 	}
 	public void doExplode(World world, TileEntityFurnace tile) { // my function
-		if(tile != null && tile instanceof TileEntityFurnace) {
-			if(tile.getStackInSlot(0).getItem() == this || tile.getStackInSlot(1).getItem() == this) {
+		if(tile != null && tile instanceof TileEntityFurnace) { // checks if the target exists
+			if(tile.getStackInSlot(0).getItem() == this || tile.getStackInSlot(1).getItem() == this) {// checks if the item is in the furnace
 				if(!world.isRemote) {
+					// creates an explosion at the position of the furnace
 					world.createExplosion(null, tile.getPos().getX(), tile.getPos().getY(), tile.getPos().getZ(), (float)5.25, true);
 				}
 			}
